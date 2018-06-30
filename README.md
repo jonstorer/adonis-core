@@ -86,3 +86,7 @@ module Adonis::Core
   end
 end
 ```
+
+### Other things to read
+
+http://guides.rubyonrails.org/engines.html
