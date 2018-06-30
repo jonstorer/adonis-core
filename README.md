@@ -33,3 +33,18 @@ Adonis::Core.config do |config|
 end
 ```
 
+Use the injected AddressService within the Adonis::Core app.
+
+```
+# app/controllers/adonis/core/address_controller.rb
+
+require_dependency "adonis/core/application_controller"
+
+module Adonis::Core
+  class AddressController < ApplicationController
+    def index
+      Adonis::Core.address_service.lookup(params)
+    end
+  end
+end
+```
