@@ -13,6 +13,28 @@ To start this app, `rails server` must be run from `test/dummy`.
 
 #### Where is the magic
 
+`lib/adonis/core.rb`
+
+Make Adonis::Core configurable
+
+```
+require "adonis/core/engine"
+
+module Adonis
+  module Core
+    cattr_accessor :address_service
+
+    def self.config(&block)
+      block.call(self)
+    end
+
+    # Your code goes here...
+  end
+end
+```
+
+-----
+
 `test/dummy/config/initializers/engines.rb`
 
 Load the Adonis::Core rails engine into memory
