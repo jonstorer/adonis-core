@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = Adonis::Core::VERSION
   s.authors     = ["Jonathon Storer"]
   s.email       = ["JonathonStorer@legalshieldcorp.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Adonis::Core."
-  s.description = "TODO: Description of Adonis::Core."
+  s.homepage    = "https://github.com/jonstorer/adonis-core"
+  s.summary     = "Summary of Adonis::Core."
+  s.description = "Description of Adonis::Core."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
