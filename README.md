@@ -13,7 +13,7 @@ To start this app, `rails server` must be run from `test/dummy`.
 
 #### Where is the magic
 
-In `test/dummy/config/initializers/engines.rb`
+`test/dummy/config/initializers/engines.rb`
 
 Load the Adonis::Core rails engine into memory
 
@@ -35,11 +35,25 @@ Adonis::Core.config do |config|
 end
 ```
 
+-----
+
+`test/dummy/config/routes.rb`
+
+Load the Adonis::Core routes within the `test/dummy` app.
+
+```
+Rails.application.routes.draw do
+  mount Adonis::Core::Engine => "/"
+end
+```
+
+-----
+
+`app/controllers/adonis/core/address_controller.rb`
+
 Use the injected AddressService within the Adonis::Core app.
 
 ```
-# app/controllers/adonis/core/address_controller.rb
-
 require_dependency "adonis/core/application_controller"
 
 module Adonis::Core
