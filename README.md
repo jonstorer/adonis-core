@@ -1,28 +1,35 @@
-# Adonis::Core
-Short description and motivation.
+## Mounting Adonis::Core
 
-## Usage
-How to use my plugin.
 
-## Installation
-Add this line to your application's Gemfile:
+#### What is Adonis::Core
 
-```ruby
-gem 'adonis-core'
+Adonis Core is a rails app that has been configured to be "mountable". This is called a "Rails Engine". The code to make the rails app turn into a rails engine lives in `lib/adonis/core`. However, the rest of the app is in the normal place (app, config, db, bin, lib, etc)
+
+There is a "dummy" rails app located at `test/dummy`. The Adonis::Core Rails Enginer cannot be started on its own, and therefor needs to be mounted into another rails app to be tested.
+
+This means, to start this app, `rails server` must be run from `test/dummy`.
+
+#### Where is the magic
+
+In `test/dummy/config/initializers/engines.rb`
+
+Load the Adonis::Core rails engine into memory
+
+```
+require 'adonis/core'
 ```
 
-And then execute:
-```bash
-$ bundle
+Load the AddressService, defined in the dummy app, into memory
+
+```
+require 'address_service'
 ```
 
-Or install it yourself as:
-```bash
-$ gem install adonis-core
+Configure Adonis::Core use AddressService as its address service.
+
+```
+Adonis::Core.config do |config|
+  config.address_service = AddressService
+end
 ```
 
-## Contributing
-Contribution directions go here.
-
-## License
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
